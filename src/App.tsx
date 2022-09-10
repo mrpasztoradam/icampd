@@ -1,56 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React, { useState } from 'react';
 import './App.css';
+import SimpleMap from './features/map/SimpleMap';
+import BottomNavigation from '@mui/material/BottomNavigation'         
+import BottomNavigationAction from '@mui/material/BottomNavigationAction'         
 
 function App() {
+
+  const [value, setValue] = useState(0)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className="app-container">
+    <header className='header-container'>
+    <p>Header container content</p>
+    </header>
+    <main className='main-container'>
+      {/* <SimpleMap /> */}
+    <p>Main container content</p>
+    </main>
+    <nav className='nav-container'>
+    <BottomNavigation style={{height: "100%"}}
+  showLabels
+  value={value}
+  onChange={(event, newValue) => {
+    setValue(newValue);
+  }}
+>
+  <BottomNavigationAction label="Home" />
+  <BottomNavigationAction label="Recents" />
+  <BottomNavigationAction label="Favorites"/>
+  <BottomNavigationAction label="Nearby"/>
+  <BottomNavigationAction label="Profile"/>
+</BottomNavigation>
+    </nav>
     </div>
   );
 }
