@@ -1,38 +1,60 @@
-import React, { useState } from 'react';
-import './App.css';
-import SimpleMap from './features/map/SimpleMap';
-import BottomNavigation from '@mui/material/BottomNavigation'         
-import BottomNavigationAction from '@mui/material/BottomNavigationAction'         
+import React, { useState } from 'react'
+import './App.css'
+import Card from './components/Card'
+import HeroImage from './components/HeroImage'
+import TextImage from './components/TextImage'
+import SimpleMap from './features/map/SimpleMap'
 
 function App() {
-
-  const [value, setValue] = useState(0)
   return (
     <div className="app-container">
-    <header className='header-container'>
-    <p>Header container content</p>
-    </header>
-    <main className='main-container'>
-      {/* <SimpleMap /> */}
-    <p>Main container content</p>
-    </main>
-    <nav className='nav-container'>
-    <BottomNavigation style={{height: "100%"}}
-  showLabels
-  value={value}
-  onChange={(event, newValue) => {
-    setValue(newValue);
-  }}
->
-  <BottomNavigationAction label="Home" />
-  <BottomNavigationAction label="Recents" />
-  <BottomNavigationAction label="Favorites"/>
-  <BottomNavigationAction label="Nearby"/>
-  <BottomNavigationAction label="Profile"/>
-</BottomNavigation>
-    </nav>
+      <header className="header-container"></header>
+      <main className="main-container">
+        <Card
+          title="Sample title"
+          subtitle="samlpeSubtitle with multiple words, little bit longer then this, so what?..."
+          textContent="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem "
+          hasAction
+          expandable
+        />
+        <Card
+          title="Sample title"
+          subtitle="samlpeSubtitle with multiple words, little bit longer then this, so what?..."
+          hasAction
+        />
+        <Card
+          imgSrc="https://placehold.co/250x100/orange/white"
+          title="Sample title"
+          subtitle="samlpeSubtitle with multiple words, little bit longer then this, so what?..."
+          hasAction
+        />
+        <Card
+          imgSrc="https://placehold.co/250x100/orange/white"
+          title="Sample title"
+          subtitle="samlpeSubtitle with multiple words, little bit longer then this, so what?..."
+          hasAction
+        />
+        <Card
+          imgSrc="https://placehold.co/250x100/orange/white"
+          title="Sample title"
+          subtitle="samlpeSubtitle with multiple words, little bit longer then this, so what?..."
+        />
+        <Card
+          imgSrc="https://placehold.co/250x100/orange/white"
+          title="Sample title"
+          subtitle="samlpeSubtitle with multiple words, little bit longer then this, so what?..."
+        />
+        {/* <SimpleMap /> */}
+        {/* <TextImage isTextOnLeft /> */}
+      </main>
+      <nav className="nav-container">
+        <div className="nav-item">nav1</div>
+        <div className="nav-item">nav2</div>
+        <div className="nav-item">nav3</div>
+        <div className="nav-item">nav4</div>
+      </nav>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
