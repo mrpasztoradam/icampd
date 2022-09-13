@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Button from './Button'
+//import Button from './Button'
+import OldButton from './old/OldButton'
 
 const StyledImg = styled.img`
   width: 100%;
@@ -25,13 +27,17 @@ const Title = styled.div`
 `
 const Subtitle = styled.div`
   font-size: 16px;
-  padding: 10px;
+  padding: 0px 10px;
 `
 const TextContent = styled.div`
   font-size: 14px;
   padding: 10px;
 `
-const Action = styled.div`
+const ActionDiv = styled.div`
+  padding: 10px;
+  width: 94%;
+`
+const ExpandDiv = styled.div`
   padding: 10px;
 `
 
@@ -83,12 +89,14 @@ const Card = ({
       {title && <Title>{title}</Title>}
       {subtitle && <Subtitle>{subtitle}</Subtitle>}
       {expandable && (
-        <Button
-          shape="circle"
-          onClick={handleOpen}
-        >
-          {'\uff0b'}
-        </Button>
+        <ExpandDiv>
+          <OldButton
+            shape="circle"
+            onClick={handleOpen}
+          >
+            {isOpen ? '\uff0d' : '\uff0b'}
+          </OldButton>
+        </ExpandDiv>
       )}
       {isOpen && (
         <div>
@@ -97,13 +105,11 @@ const Card = ({
         </div>
       )}
       {hasAction && (
-        <div style={{ width: 'inherit' }}>
+        <ActionDiv>
           <Hr />
-          <Action>
-            <button>Some button</button>
-            <button>Other button</button>
-          </Action>
-        </div>
+          <Button icon={'\uff20'}>Button</Button>
+          <Button icon={'\uff20'}></Button>
+        </ActionDiv>
       )}
     </StyledDiv>
   )

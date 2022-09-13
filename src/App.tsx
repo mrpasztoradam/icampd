@@ -14,12 +14,14 @@ function App() {
           title="Sample title"
           subtitle="samlpeSubtitle with multiple words, little bit longer then this, so what?..."
           textContent="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem "
-          hasAction
           expandable
+          hasAction
         />
         <Card
           title="Sample title"
           subtitle="samlpeSubtitle with multiple words, little bit longer then this, so what?..."
+          textContent="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem "
+          expandable
           hasAction
         />
         <Card

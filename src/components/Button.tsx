@@ -2,36 +2,22 @@ import React from 'react'
 import styled from 'styled-components'
 
 interface IButton {
-  //onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void; // to handle onClick functions
   onClick?: () => void
   children?: React.ReactNode
-  shape?: 'circle' | 'rectangle'
+  icon?: string
 }
-
-const StyledButton = styled.button.attrs((props: IButton) => ({
-  shape: props.shape,
-}))`
+const ButtonDiv = styled.div`
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: auto auto;
   background: #ffd124;
   border: none;
   box-shadow: 1px 1px 10px rgba(255, 209, 36, 0.1);
-  font-weight: 700;
-  color: #006778;
-  height: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: ${(props: IButton) =>
-    props.shape?.toString() === 'circle' ? '24px' : '20px'};
-  line-height: ${(props: IButton) =>
-    props.shape?.toString() === 'circle' ? '44px' : '24px'};
-  font-weight: ${(props: IButton) =>
-    props.shape?.toString() === 'circle' ? '400' : '700'};
-  width: ${(props: IButton) =>
-    props.shape?.toString() === 'circle' ? '24px' : '138px'};
-  border-radius: ${(props: IButton) =>
-    props.shape?.toString() === 'circle' ? '12px' : '8px'};
-  text-align: center;
-
+  height: 32px;
+  width: 80px;
+  border-radius: 8px;
+  font-size: 22px;
   :hover {
     background: #ffb900;
   }
@@ -39,15 +25,20 @@ const StyledButton = styled.button.attrs((props: IButton) => ({
     background: #ffe482;
   }
 `
+const Icon = styled.div``
 
-const Button = ({ shape, children, onClick }: IButton) => {
+const StyledButton = styled.button`
+  text-align: center;
+  border: none;
+  background: none;
+`
+
+const Button = ({ children, icon, onClick }: IButton) => {
   return (
-    <StyledButton
-      onClick={onClick}
-      shape={shape}
-    >
-      {children}
-    </StyledButton>
+    <ButtonDiv>
+      {icon && <Icon>{icon}</Icon>}
+      {children && <StyledButton onClick={onClick}>{children}</StyledButton>}
+    </ButtonDiv>
   )
 }
 
